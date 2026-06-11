@@ -1,4 +1,4 @@
-# ASOUL 素材收集 / ASOUL Asset Collection
+# ASOUL 素材/ ASOUL Asset 
 
 ## 中文
 
