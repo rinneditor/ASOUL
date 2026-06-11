@@ -12,9 +12,9 @@
 
 ### 素材目录
 
-- `asset_library/asoul_clothing_refs/`: 服装参考图素材库。
-- `asset_library/asoul_clothing_refs/manifest.json`: 机器可读素材索引，包含来源 URL、尺寸、文件大小、hash 和设计备注。
-- `asset_library/asoul_clothing_refs/README.md`: 详细素材目录和单图清单。
+- `asset/asoul_clothing_refs/`: 服装参考图素材库。
+- `asset/asoul_clothing_refs/manifest.json`: 机器可读素材索引，包含来源 URL、尺寸、文件大小、hash 和设计备注。
+- `asset/asoul_clothing_refs/README.md`: 详细素材目录和单图清单。
 
 ### 当前数量
 
@@ -25,7 +25,7 @@
 
 ### 使用建议
 
-优先从 `manifest.json` 读取素材元数据；人工浏览时从子目录 README 的 catalog 开始。生成游戏用素材时，建议另建目录保存原创 sprite，例如 `asset_library/asoul_pixel_sprites/`。
+优先从 `manifest.json` 读取素材元数据；人工浏览时从子目录 README 的 catalog 开始。生成游戏用素材时，建议另建目录保存原创 sprite，例如 `asset/asoul_pixel_sprites/`。
 
 ### 后续收集
 
@@ -53,9 +53,9 @@ This repository collects clothing reference assets for current active first-gene
 
 ### Asset Directories
 
-- `asset_library/asoul_clothing_refs/`: clothing reference image library.
-- `asset_library/asoul_clothing_refs/manifest.json`: machine-readable asset index with source URLs, dimensions, file sizes, hashes, and design notes.
-- `asset_library/asoul_clothing_refs/README.md`: detailed catalog and per-image listing.
+- `asset/asoul_clothing_refs/`: clothing reference image library.
+- `asset/asoul_clothing_refs/manifest.json`: machine-readable asset index with source URLs, dimensions, file sizes, hashes, and design notes.
+- `asset/asoul_clothing_refs/README.md`: detailed catalog and per-image listing.
 
 ### Current Counts
 
@@ -66,7 +66,7 @@ This repository collects clothing reference assets for current active first-gene
 
 ### Usage Notes
 
-Prefer `manifest.json` for metadata-driven workflows. For manual browsing, start from the catalog in the nested README. Game-ready original sprites should live in a separate directory, for example `asset_library/asoul_pixel_sprites/`.
+Prefer `manifest.json` for metadata-driven workflows. For manual browsing, start from the catalog in the nested README. Game-ready original sprites should live in a separate directory, for example `asset/asoul_pixel_sprites/`.
 
 ### Next Collection
 

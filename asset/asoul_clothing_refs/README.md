@@ -179,4 +179,4 @@ Rules:
 
 - Treat these as visual references for silhouette, palette, hair shape, and clothing motif extraction.
 - For game production, create original simplified pixel sprites rather than directly tracing or redistributing these character images.
-- Keep generated game-ready sprites in a separate folder, for example `asset_library/asoul_pixel_sprites/`.
+- Keep generated game-ready sprites in a separate folder, for example `asset/asoul_pixel_sprites/`.
