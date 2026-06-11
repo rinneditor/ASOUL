@@ -5,7 +5,7 @@ This folder stores clothing reference images for Bella, Diana, and Eileen for pi
 ## Scope
 
 - Current active first-generation member scope checked on 2026-06-11: Bella, Diana, and Eileen.
-- Excluded from this active-member library: Ava/向晚, who stopped activity on 2024-04-19; Carol/珈乐, who entered live-stream dormancy on 2022-05-10.
+- Excluded from this active-member library: ~~Ava/向晚~~, who stopped activity on 2024-04-19; ~~Carol/珈乐~~, who entered live-stream dormancy on 2022-05-10.
 - Keep inactive-member references out of this folder unless a separate archive library is explicitly requested.
 
 ## Folder

@@ -7,7 +7,7 @@ This file tracks clothing references to collect after the Moegirl-covered 2023 a
 
 - 成员 / Members: Bella, Diana, Eileen.
 - 年份 / Years: 2024 and 2025.
-- 排除 / Excluded: Ava and Carol, unless a separate inactive-member archive is created.
+- 排除 / Excluded: ~~Ava~~ and ~~Carol~~, unless a separate inactive-member archive is created.
 - 来源优先级 / Source priority: official posts, livestream replays, official videos, official merchandise images, then other verifiable secondary sources.
 
 ## 命名规则 / Naming Rule

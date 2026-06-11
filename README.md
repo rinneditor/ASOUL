@@ -7,7 +7,7 @@
 ### 范围
 
 - 当前只收集现役一代成员：贝拉、嘉然、乃琳。
-- 不在本库范围内：向晚、珈乐。
+- 不在本库范围内：~~向晚~~、~~珈乐~~。
 - 素材只作为造型、配色、轮廓和服装元素参考；正式制作时应绘制原创简化资产，不直接描摹或复用原图。
 
 ### 素材目录
@@ -48,7 +48,7 @@ This repository collects clothing reference assets for current active first-gene
 ### Scope
 
 - Current active first-generation members only: Bella, Diana, and Eileen.
-- Out of scope for this library: Ava and Carol.
+- Out of scope for this library: ~~Ava~~ and ~~Carol~~.
 - These files are visual references for silhouette, palette, shape language, and clothing motifs. Production assets should be original simplified drawings, not direct traces or reused source images.
 
 ### Asset Directories
