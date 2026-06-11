@@ -2,6 +2,19 @@
   "library": "asoul_clothing_refs",
   "updated": "2026-06-11",
   "purpose": "Clothing reference images for pixel-art game asset production.",
+  "scope": {
+    "member_policy": "current_active_first_generation_members_only",
+    "checked_on": "2026-06-11",
+    "included_members": [
+      "Bella",
+      "Diana",
+      "Eileen"
+    ],
+    "excluded_members": {
+      "Ava": "Stopped activity on 2024-04-19; excluded from the active-member reference scope.",
+      "Carol": "Entered live-stream dormancy on 2022-05-10; excluded from the active-member reference scope."
+    }
+  },
   "members": [
     "Bella",
     "Diana",
