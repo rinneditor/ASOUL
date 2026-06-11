@@ -27,6 +27,20 @@
 
 优先从 `manifest.json` 读取素材元数据；人工浏览时从子目录 README 的 catalog 开始。生成游戏用素材时，建议另建目录保存原创 sprite，例如 `asset_library/asoul_pixel_sprites/`。
 
+### 后续收集
+
+萌娘百科来源目前主要覆盖到 2023 年。2024-2025 年服装需要从官方动态、直播回放、官方视频、官方商品图或其他可核验来源补充。
+
+新增素材文件名必须包含服装第一次公开出现的年份：
+
+```text
+{member_key}_{first_appearance_year}_{sequence}_{outfit_slug}.{ext}
+```
+
+示例：`bella_2024_01_fourth_anniversary_stage.png`
+
+其中 `first_appearance_year` 指服装第一次公开出现的年份，不是下载年份或二次转载年份。
+
 ## English
 
 This repository collects clothing reference assets for current active first-generation A-SOUL members. It is mainly intended for early reference work in pixel-art games or fan-made asset production.
@@ -53,3 +67,17 @@ This repository collects clothing reference assets for current active first-gene
 ### Usage Notes
 
 Prefer `manifest.json` for metadata-driven workflows. For manual browsing, start from the catalog in the nested README. Game-ready original sprites should live in a separate directory, for example `asset_library/asoul_pixel_sprites/`.
+
+### Next Collection
+
+The Moegirl source pages currently cover mostly up to 2023. Clothing references from 2024-2025 should be collected from official posts, livestream replays, official videos, official merch images, or other verifiable sources.
+
+New asset filenames must include the outfit's first public appearance year:
+
+```text
+{member_key}_{first_appearance_year}_{sequence}_{outfit_slug}.{ext}
+```
+
+Example: `bella_2024_01_fourth_anniversary_stage.png`
+
+Here, `first_appearance_year` means the year when the outfit first appeared publicly, not the download year or repost year.

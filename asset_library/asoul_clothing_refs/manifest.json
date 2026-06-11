@@ -15,6 +15,43 @@
       "Carol": "Entered live-stream dormancy on 2022-05-10; excluded from the active-member reference scope."
     }
   },
+  "naming_convention": {
+    "legacy_assets": "Existing assets keep their current filenames until a deliberate batch migration is planned.",
+    "new_asset_pattern": "{member_key}_{first_appearance_year}_{sequence}_{outfit_slug}.{ext}",
+    "example": "bella_2024_01_fourth_anniversary_stage.png",
+    "rules": [
+      "member_key must be one of: bella, diana, eileen.",
+      "first_appearance_year is the year when the outfit first appeared publicly, not the download year or repost year.",
+      "sequence is a two-digit order within the same member and first appearance year.",
+      "outfit_slug is a lowercase English snake_case description.",
+      "Variants of the same outfit keep the same first_appearance_year and use a descriptive suffix."
+    ],
+    "new_manifest_fields": [
+      "first_appearance_year",
+      "first_appearance_date",
+      "first_appearance_source_url",
+      "source_confidence"
+    ]
+  },
+  "collection_targets": {
+    "years": [
+      2024,
+      2025
+    ],
+    "members": [
+      "Bella",
+      "Diana",
+      "Eileen"
+    ],
+    "source_priority": [
+      "official_posts",
+      "livestream_replays",
+      "official_videos",
+      "official_merchandise_images",
+      "verified_secondary_sources"
+    ],
+    "tracking_file": "collection_plan_2024_2025.md"
+  },
   "members": [
     "Bella",
     "Diana",

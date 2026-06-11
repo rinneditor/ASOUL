@@ -15,6 +15,38 @@ This folder stores clothing reference images for Bella, Diana, and Eileen for pi
 - `eileen/`: Eileen clothing reference images.
 - `manifest.json`: machine-readable asset index with source URLs, dimensions, file sizes, hashes, and design metadata.
 
+## Naming Convention
+
+Legacy assets keep their current filenames until a deliberate batch migration is planned.
+
+New assets, including the 2024-2025 collection, must use the outfit's first public appearance year:
+
+```text
+{member_key}_{first_appearance_year}_{sequence}_{outfit_slug}.{ext}
+```
+
+Example:
+
+```text
+bella_2024_01_fourth_anniversary_stage.png
+```
+
+Rules:
+
+- `member_key`: `bella`, `diana`, or `eileen`.
+- `first_appearance_year`: the year when this outfit first appeared publicly, not the download year or repost year.
+- `sequence`: two-digit order within the same member and first appearance year.
+- `outfit_slug`: lowercase English snake_case description.
+- Variants of the same outfit keep the same year and use a descriptive suffix, for example `_red_variant`.
+- Future manifest entries should include `first_appearance_year`, `first_appearance_date` when known, and a source URL for that first appearance.
+
+## 2024-2025 Collection Scope
+
+- Moegirl source pages currently cover mostly through 2023.
+- Collect 2024 and 2025 clothing references only for active first-generation members: Bella, Diana, and Eileen.
+- Prefer official posts, livestream replays, official videos, official merchandise images, or other verifiable sources.
+- Track candidate outfits in `collection_plan_2024_2025.md` before adding files to the library.
+
 ## Counts
 
 - Total assets: 98
