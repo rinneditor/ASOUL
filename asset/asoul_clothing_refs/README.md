@@ -44,7 +44,7 @@ Rules:
 
 - Moegirl source pages currently cover mostly through 2023.
 - Collect 2024 and 2025 clothing references only for active first-generation members: Bella, Diana, and Eileen.
-- Prefer official posts, livestream replays, official videos, official merchandise images, or other verifiable sources.
+- Prefer traceable high-resolution image sources. Official posts, livestream replays, official videos, and official merchandise images are preferred, but non-official high-resolution sources can be tracked as candidates.
 - Track candidate outfits in `collection_plan_2024_2025.md` before adding files to the library.
 
 ## Counts

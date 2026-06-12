@@ -29,7 +29,7 @@
 
 ### 后续收集
 
-萌娘百科来源目前主要覆盖到 2023 年。2024-2025 年服装需要从官方动态、直播回放、官方视频、官方商品图或其他可核验来源补充。
+萌娘百科来源目前主要覆盖到 2023 年。2024-2025 年服装需要从高清可追溯图源补充；官方动态、直播回放、官方视频和官方商品图优先，但非官方高清图源也可作为候选。
 
 新增素材文件名必须包含服装第一次公开出现的年份：
 
@@ -70,7 +70,7 @@ Prefer `manifest.json` for metadata-driven workflows. For manual browsing, start
 
 ### Next Collection
 
-The Moegirl source pages currently cover mostly up to 2023. Clothing references from 2024-2025 should be collected from official posts, livestream replays, official videos, official merch images, or other verifiable sources.
+The Moegirl source pages currently cover mostly up to 2023. Clothing references from 2024-2025 should be collected from traceable high-resolution image sources. Official posts, livestream replays, official videos, and official merch images are preferred, but non-official high-resolution sources can also be tracked as candidates.
 
 New asset filenames must include the outfit's first public appearance year:
 
