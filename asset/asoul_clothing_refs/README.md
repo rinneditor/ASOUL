@@ -49,10 +49,10 @@ Rules:
 
 ## Counts
 
-- Total assets: 98
-- Bella: 34
-- Diana: 32
-- Eileen: 32
+- Total assets: 101
+- Bella: 35
+- Diana: 33
+- Eileen: 33
 
 ## Source Pages
 
@@ -98,6 +98,7 @@ Rules:
 | `bella/bella_28_second_anniversary_cyber_sailor_green.png` | `second_anniversary_cyber_sailor_green` | 二周年赛博水手服（绿） | 373x848 |
 | `bella/bella_29_squirrel_pajamas.png` | `squirrel_pajamas` | 松鼠睡衣 | 730x1231 |
 | `bella/bella_30_summer_outfit.png` | `summer_outfit` | 夏服 | 315x802 |
+| `bella/bella_2023_01_summer_outfit_bag_variant.png` | `summer_outfit_bag_variant` | 2023夏服带挎包差分截图 | 315x935 |
 | `bella/bella_31_birthday_2023_black_variant.png` | `birthday_2023_black_variant` | 2023生日黑贝拉 | 877x969 |
 | `bella/bella_32_birthday_2023_white_wedding.png` | `birthday_2023_white_wedding` | 2023生日纯白花嫁 | 616x918 |
 
@@ -137,6 +138,7 @@ Rules:
 | `diana/diana_28_birthday_2023_pink_wedding.png` | `birthday_2023_pink_wedding` | 2023生日会粉色花嫁 | 466x783 |
 | `diana/diana_29_bunny_pajamas.png` | `bunny_pajamas` | 兔兔睡衣 | 609x1080 |
 | `diana/diana_30_summer_outfit.png` | `summer_outfit` | 夏服 | 468x811 |
+| `diana/diana_2023_01_summer_outfit_bag_variant.png` | `summer_outfit_bag_variant` | 2023夏服带挎包差分截图 | 345x860 |
 
 ### Eileen
 
@@ -173,6 +175,7 @@ Rules:
 | `eileen/eileen_27_second_anniversary_cyber_sailor.jpeg` | `second_anniversary_cyber_sailor` | 二周年赛博水手服 | 252x640 |
 | `eileen/eileen_28_fox_pajamas.png` | `fox_pajamas` | 狐狐睡衣 | 607x931 |
 | `eileen/eileen_29_summer_outfit.png` | `summer_outfit` | 夏服 | 313x741 |
+| `eileen/eileen_2023_01_summer_outfit_bag_variant.png` | `summer_outfit_bag_variant` | 2023夏服带挎包差分截图 | 330x950 |
 | `eileen/eileen_30_birthday_2023_white_wedding.png` | `birthday_2023_white_wedding` | 2023生日会纯白花嫁 | 1288x952 |
 
 ## Usage Notes

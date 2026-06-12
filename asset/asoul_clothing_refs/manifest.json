@@ -1,6 +1,6 @@
 {
   "library": "asoul_clothing_refs",
-  "updated": "2026-06-11",
+  "updated": "2026-06-13",
   "purpose": "Clothing reference images for pixel-art game asset production.",
   "scope": {
     "member_policy": "current_active_first_generation_members_only",
@@ -69,11 +69,11 @@
     "eileen": "https://moegirl.uk/%E4%B9%83%E7%90%B3"
   },
   "counts": {
-    "total_assets": 98,
+    "total_assets": 101,
     "by_member": {
-      "bella": 34,
-      "diana": 32,
-      "eileen": 32
+      "bella": 35,
+      "diana": 33,
+      "eileen": 33
     }
   },
   "assets": [
@@ -627,6 +627,37 @@
       "bytes": 299053,
       "sha256": "adadee8a397ac3cdb3f5588901cf8ed9dc5392641c5cad1c1c0be291fe4d74f1",
       "pixel_design_notes": []
+    },
+    {
+      "id": "bella_2023_01_summer_outfit_bag_variant",
+      "member": "Bella",
+      "member_key": "bella",
+      "source_section": "user_provided_bilibili_dynamic_crop",
+      "outfit": "summer_outfit_bag_variant",
+      "caption_zh": "2023夏服带挎包差分截图",
+      "path": "bella/bella_2023_01_summer_outfit_bag_variant.png",
+      "source_page": null,
+      "source_file_page": null,
+      "source_url": "http://i0.hdslb.com/bfs/new_dyn/53855c5791ad05d1287bb5bab267e9b5672342685.png",
+      "first_appearance_year": 2023,
+      "first_appearance_date": null,
+      "first_appearance_source_url": "http://i0.hdslb.com/bfs/new_dyn/53855c5791ad05d1287bb5bab267e9b5672342685.png",
+      "source_confidence": "hd_traceable",
+      "source_crop_box": {
+        "left": 1290,
+        "top": 145,
+        "width": 315,
+        "height": 935
+      },
+      "width": 315,
+      "height": 935,
+      "bytes": 248999,
+      "sha256": "a48cce3977d4b2b954066f6f50ab76fdb426782718307a6c6afe3b1649efb4ac",
+      "pixel_design_notes": [
+        "Bag variant of the 2023 summer outfit.",
+        "Keep the crossbody strap and bag readable as the distinguishing variant details.",
+        "Original group screenshot also includes Ava/向晚, but only active members are cropped into this library."
+      ]
     },
     {
       "id": "bella_31_birthday_2023_black_variant",
@@ -1214,6 +1245,37 @@
       "pixel_design_notes": []
     },
     {
+      "id": "diana_2023_01_summer_outfit_bag_variant",
+      "member": "Diana",
+      "member_key": "diana",
+      "source_section": "user_provided_bilibili_dynamic_crop",
+      "outfit": "summer_outfit_bag_variant",
+      "caption_zh": "2023夏服带挎包差分截图",
+      "path": "diana/diana_2023_01_summer_outfit_bag_variant.png",
+      "source_page": null,
+      "source_file_page": null,
+      "source_url": "http://i0.hdslb.com/bfs/new_dyn/53855c5791ad05d1287bb5bab267e9b5672342685.png",
+      "first_appearance_year": 2023,
+      "first_appearance_date": null,
+      "first_appearance_source_url": "http://i0.hdslb.com/bfs/new_dyn/53855c5791ad05d1287bb5bab267e9b5672342685.png",
+      "source_confidence": "hd_traceable",
+      "source_crop_box": {
+        "left": 280,
+        "top": 220,
+        "width": 345,
+        "height": 860
+      },
+      "width": 345,
+      "height": 860,
+      "bytes": 256056,
+      "sha256": "f12434267c18caa1adda8a268d8c6a14c0418c98aa5e596c09d7057d6c0af866",
+      "pixel_design_notes": [
+        "Bag variant of the 2023 summer outfit.",
+        "Keep the crossbody strap and bag readable as the distinguishing variant details.",
+        "Original group screenshot also includes Ava/向晚, but only active members are cropped into this library."
+      ]
+    },
+    {
       "id": "eileen_default",
       "member": "Eileen",
       "member_key": "eileen",
@@ -1746,6 +1808,37 @@
       "bytes": 316614,
       "sha256": "c3b86151b600a2bf0bedf12090d5011e6d84884e05e968e4df4e7d67bdf2efb1",
       "pixel_design_notes": []
+    },
+    {
+      "id": "eileen_2023_01_summer_outfit_bag_variant",
+      "member": "Eileen",
+      "member_key": "eileen",
+      "source_section": "user_provided_bilibili_dynamic_crop",
+      "outfit": "summer_outfit_bag_variant",
+      "caption_zh": "2023夏服带挎包差分截图",
+      "path": "eileen/eileen_2023_01_summer_outfit_bag_variant.png",
+      "source_page": null,
+      "source_file_page": null,
+      "source_url": "http://i0.hdslb.com/bfs/new_dyn/53855c5791ad05d1287bb5bab267e9b5672342685.png",
+      "first_appearance_year": 2023,
+      "first_appearance_date": null,
+      "first_appearance_source_url": "http://i0.hdslb.com/bfs/new_dyn/53855c5791ad05d1287bb5bab267e9b5672342685.png",
+      "source_confidence": "hd_traceable",
+      "source_crop_box": {
+        "left": 955,
+        "top": 130,
+        "width": 330,
+        "height": 950
+      },
+      "width": 330,
+      "height": 950,
+      "bytes": 246590,
+      "sha256": "9bbb0d75bf9925412ba2e82348ba50faed46e332bf9017b9f4683c84a85babba",
+      "pixel_design_notes": [
+        "Bag variant of the 2023 summer outfit.",
+        "Keep the crossbody strap and bag readable as the distinguishing variant details.",
+        "Original group screenshot also includes Ava/向晚, but only active members are cropped into this library."
+      ]
     },
     {
       "id": "eileen_30_birthday_2023_white_wedding",
