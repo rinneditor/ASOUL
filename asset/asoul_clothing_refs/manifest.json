@@ -1,6 +1,6 @@
 {
   "library": "asoul_clothing_refs",
-  "updated": "2026-06-13",
+  "updated": "2026-06-15",
   "purpose": "Clothing reference images for pixel-art game asset production.",
   "scope": {
     "member_policy": "current_active_first_generation_members_only",
@@ -69,11 +69,11 @@
     "eileen": "https://moegirl.uk/%E4%B9%83%E7%90%B3"
   },
   "counts": {
-    "total_assets": 101,
+    "total_assets": 102,
     "by_member": {
       "bella": 35,
       "diana": 33,
-      "eileen": 33
+      "eileen": 34
     }
   },
   "assets": [
@@ -1856,6 +1856,31 @@
       "bytes": 1265816,
       "sha256": "7372ca5060647adb17e2e44e4d6cf6b19ff901cb4aae384b631496dc44d97b51",
       "pixel_design_notes": []
+    },
+    {
+      "id": "eileen_2024_01_fourth_anniversary_live_outfit",
+      "member": "Eileen",
+      "member_key": "eileen",
+      "source_section": "user_provided_bilibili_dynamic_poster",
+      "outfit": "fourth_anniversary_live_outfit",
+      "caption_zh": "2024四周年纪念直播服装海报",
+      "path": "eileen/eileen_2024_01_fourth_anniversary_live_outfit.png",
+      "source_page": null,
+      "source_file_page": null,
+      "source_url": "https://i0.hdslb.com/bfs/new_dyn/7a253a5fe3c77875a1218ed411f9e327672342685.png",
+      "first_appearance_year": 2024,
+      "first_appearance_date": "2024-12-21",
+      "first_appearance_source_url": "https://i0.hdslb.com/bfs/new_dyn/7a253a5fe3c77875a1218ed411f9e327672342685.png",
+      "source_confidence": "hd_traceable",
+      "width": 2362,
+      "height": 4134,
+      "bytes": 3763373,
+      "sha256": "a172674317dca029561a5ffef824938cf155c6ade74be16f6fa79478e0bdc077",
+      "pixel_design_notes": [
+        "Fourth anniversary live outfit poster for Eileen.",
+        "Keep the wolf-ear head accessory, monochrome stocking contrast, and microphone silhouette readable.",
+        "Source URL points to a Bilibili dynamic image hosted under Eileen's mid."
+      ]
     }
   ],
   "rights_note": "These files are stored as visual references. Verify usage rights before redistributing or using directly in a commercial game. For production sprites, create original simplified pixel designs instead of tracing or reusing the reference art directly."

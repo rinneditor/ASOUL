@@ -49,10 +49,10 @@ Rules:
 
 ## Counts
 
-- Total assets: 101
+- Total assets: 102
 - Bella: 35
 - Diana: 33
-- Eileen: 33
+- Eileen: 34
 
 ## Source Pages
 
@@ -177,6 +177,7 @@ Rules:
 | `eileen/eileen_29_summer_outfit.png` | `summer_outfit` | 夏服 | 313x741 |
 | `eileen/eileen_2023_01_summer_outfit_bag_variant.png` | `summer_outfit_bag_variant` | 2023夏服带挎包差分截图 | 330x950 |
 | `eileen/eileen_30_birthday_2023_white_wedding.png` | `birthday_2023_white_wedding` | 2023生日会纯白花嫁 | 1288x952 |
+| `eileen/eileen_2024_01_fourth_anniversary_live_outfit.png` | `fourth_anniversary_live_outfit` | 2024四周年纪念直播服装海报 | 2362x4134 |
 
 ## Usage Notes
 

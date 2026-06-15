@@ -18,10 +18,10 @@
 
 ### 当前数量
 
-- 总素材：101 张
+- 总素材：102 张
 - 贝拉：35 张
 - 嘉然：33 张
-- 乃琳：33 张
+- 乃琳：34 张
 
 ### 使用建议
 
@@ -59,10 +59,10 @@ This repository collects clothing reference assets for current active first-gene
 
 ### Current Counts
 
-- Total assets: 101 images
+- Total assets: 102 images
 - Bella: 35 images
 - Diana: 33 images
-- Eileen: 33 images
+- Eileen: 34 images
 
 ### Usage Notes
 
