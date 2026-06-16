@@ -15,6 +15,13 @@
 - `asset/asoul_clothing_refs/`: 服装参考图素材库。
 - `asset/asoul_clothing_refs/manifest.json`: 机器可读素材索引，包含来源 URL、尺寸、文件大小、hash 和设计备注。
 - `asset/asoul_clothing_refs/README.md`: 详细素材目录和单图清单。
+- `index.html`: 静态展示站入口，直接读取 `manifest.json` 渲染素材列表。
+
+### 网站展示
+
+- 仓库根目录提供 GitHub Pages 友好的静态站，可直接展示已收集服装。
+- 页面支持成员筛选、年份筛选、关键词搜索、排序和单图详情查看。
+- 已添加 `.github/workflows/deploy-pages.yml`，推送到 `main` 后可用 GitHub Pages 部署。
 
 ### 当前数量
 
@@ -56,6 +63,13 @@ This repository collects clothing reference assets for current active first-gene
 - `asset/asoul_clothing_refs/`: clothing reference image library.
 - `asset/asoul_clothing_refs/manifest.json`: machine-readable asset index with source URLs, dimensions, file sizes, hashes, and design notes.
 - `asset/asoul_clothing_refs/README.md`: detailed catalog and per-image listing.
+- `index.html`: static gallery entrypoint that renders directly from `manifest.json`.
+
+### Web Viewer
+
+- The repository root now includes a GitHub Pages friendly static site for browsing collected outfits.
+- The viewer supports member filters, year filters, keyword search, sorting, and per-image detail views.
+- `.github/workflows/deploy-pages.yml` deploys the repository to GitHub Pages on pushes to `main`.
 
 ### Current Counts
 
