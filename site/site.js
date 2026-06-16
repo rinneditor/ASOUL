@@ -1,4 +1,4 @@
-const MANIFEST_PATH = "./asset/asoul_clothing_refs/manifest.json";
+const MANIFEST_PATH = "../asset/asoul_clothing_refs/manifest.json";
 
 const MEMBER_META = {
   Bella: { zh: "贝拉", accent: "#839b3c", accentSoft: "rgba(131, 155, 60, 0.18)" },
@@ -160,7 +160,7 @@ function normalizeAssets(assets) {
     const derivedYear = deriveYear(asset);
     const title = asset.caption_zh || asset.outfit || asset.id || "未命名素材";
     const subtitle = [memberMeta.zh, asset.outfit].filter(Boolean).join(" / ");
-    const imagePath = `./asset/asoul_clothing_refs/${asset.path}`;
+    const imagePath = `../asset/asoul_clothing_refs/${asset.path}`;
 
     return {
       ...asset,

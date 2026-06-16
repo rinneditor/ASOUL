@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A-SOUL Outfit Archive</title>
+    <meta
+      name="description"
+      content="A-SOUL 现役一代成员服装素材展示站，支持成员、年份和关键词筛选。"
+    />
+    <link rel="stylesheet" href="./site.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="masthead">
+        <div class="masthead__copy">
+          <p class="eyebrow">GitHub Pages Ready</p>
+          <h1>A-SOUL Outfit Archive</h1>
+          <p class="masthead__lead">
+            现役一代成员服装素材展示站。页面直接读取仓库里的
+            <code>manifest.json</code>，适合后续继续增量补图。
+          </p>
+        </div>
+        <div class="masthead__stats" id="summary-cards" aria-live="polite"></div>
+      </header>
+
+      <section class="spotlight" aria-labelledby="spotlight-title">
+        <div class="section-head">
+          <p class="section-kicker">Spotlight</p>
+          <h2 id="spotlight-title">成员精选</h2>
+        </div>
+        <div class="spotlight-grid" id="spotlight-grid"></div>
+      </section>
+
+      <section class="control-panel" aria-labelledby="filter-title">
+        <div class="section-head section-head--compact">
+          <p class="section-kicker">Browse</p>
+          <h2 id="filter-title">筛选与检索</h2>
+        </div>
+
+        <div class="control-row">
+          <label class="search-field">
+            <span class="search-field__label">关键词</span>
+            <input
+              id="search-input"
+              type="search"
+              placeholder="搜索服装名、中文标题、文件名"
+              autocomplete="off"
+            />
+          </label>
+
+          <label class="sort-field">
+            <span class="search-field__label">排序</span>
+            <select id="sort-select">
+              <option value="newest">按年份最新</option>
+              <option value="member">按成员</option>
+              <option value="title">按标题</option>
+              <option value="size">按图片面积</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="control-row control-row--stacked">
+          <div>
+            <p class="filter-label">成员</p>
+            <div class="segmented" id="member-filters">
+              <button class="chip is-active" data-member="all" type="button">全部</button>
+              <button class="chip" data-member="Bella" type="button">贝拉</button>
+              <button class="chip" data-member="Diana" type="button">嘉然</button>
+              <button class="chip" data-member="Eileen" type="button">乃琳</button>
+            </div>
+          </div>
+
+          <div>
+            <p class="filter-label">年份</p>
+            <div class="segmented segmented--wrap" id="year-filters"></div>
+          </div>
+        </div>
+
+        <p class="results-meta" id="results-meta" aria-live="polite"></p>
+      </section>
+
+      <section class="gallery-section" aria-labelledby="gallery-title">
+        <div class="section-head section-head--compact">
+          <p class="section-kicker">Gallery</p>
+          <h2 id="gallery-title">素材列表</h2>
+        </div>
+        <div class="gallery-grid" id="gallery-grid" aria-live="polite"></div>
+      </section>
+    </div>
+
+    <div class="detail-modal" id="detail-modal" hidden>
+      <div class="detail-modal__backdrop" data-close="true"></div>
+      <div class="detail-panel" role="dialog" aria-modal="true" aria-labelledby="detail-title">
+        <button class="detail-panel__close" id="detail-close" type="button" aria-label="关闭">
+          ×
+        </button>
+        <div class="detail-panel__media">
+          <img id="detail-image" alt="" />
+        </div>
+        <div class="detail-panel__body">
+          <div class="detail-panel__badges" id="detail-badges"></div>
+          <h3 id="detail-title"></h3>
+          <p class="detail-panel__subtitle" id="detail-subtitle"></p>
+          <dl class="detail-grid" id="detail-grid"></dl>
+          <div class="detail-links">
+            <a id="detail-file-link" target="_blank" rel="noreferrer">打开站内图片</a>
+            <a id="detail-source-link" target="_blank" rel="noreferrer">打开来源链接</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <template id="card-template">
+      <article class="outfit-card">
+        <button class="outfit-card__media" type="button">
+          <img class="outfit-card__image" alt="" loading="lazy" />
+        </button>
+        <div class="outfit-card__body">
+          <div class="outfit-card__badges"></div>
+          <h3 class="outfit-card__title"></h3>
+          <p class="outfit-card__meta"></p>
+        </div>
+      </article>
+    </template>
+
+    <script src="./site.js" defer></script>
+  </body>
+</html>
