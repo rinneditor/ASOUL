@@ -1,19 +1,87 @@
+// Source of truth for the gallery. Run `pnpm build` after editing this file.
 const MANIFEST_PATH = "../asset/asoul_clothing_refs/manifest.json";
 
-const MEMBER_META = {
+type Member = "Bella" | "Diana" | "Eileen";
+type MemberFilter = Member | "all";
+type YearFilter = `${number}` | "all" | "unknown";
+type SortMode = "newest" | "member" | "title" | "size";
+type SourceConfidence = "official" | "hd_traceable" | "verified_secondary" | "needs_review";
+
+interface MemberMeta {
+  zh: string;
+  accent: string;
+  accentSoft: string;
+}
+
+interface ManifestAsset {
+  id?: string;
+  member: string;
+  member_key?: string;
+  source_section?: string;
+  outfit?: string;
+  caption_zh?: string;
+  path: string;
+  source_page?: string | null;
+  source_file_page?: string | null;
+  source_url?: string | null;
+  first_appearance_year?: number | null;
+  first_appearance_date?: string | null;
+  first_appearance_source_url?: string | null;
+  source_confidence?: SourceConfidence;
+  width?: number;
+  height?: number;
+  bytes?: number;
+  sha256?: string;
+  pixel_design_notes?: string[];
+}
+
+interface NormalizedAsset extends ManifestAsset {
+  _index: number;
+  _title: string;
+  _subtitle: string;
+  _memberZh: string;
+  _accent: string;
+  _accentSoft: string;
+  _year: number | null;
+  _yearLabel: string;
+  _imagePath: string;
+  _sourceLabel: string;
+  _area: number;
+  _searchText: string;
+}
+
+interface Manifest {
+  counts?: {
+    total_assets?: number;
+    by_member?: Partial<Record<Lowercase<Member>, number>>;
+  };
+  assets?: ManifestAsset[];
+}
+
+interface GalleryState {
+  assets: NormalizedAsset[];
+  filteredAssets: NormalizedAsset[];
+  years: number[];
+  member: MemberFilter;
+  year: YearFilter;
+  query: string;
+  sort: SortMode;
+}
+
+const MEMBER_META: Record<Member, MemberMeta> = {
   Bella: { zh: "贝拉", accent: "#839b3c", accentSoft: "rgba(131, 155, 60, 0.18)" },
   Diana: { zh: "嘉然", accent: "#d89b3b", accentSoft: "rgba(216, 155, 59, 0.18)" },
   Eileen: { zh: "乃琳", accent: "#d26d68", accentSoft: "rgba(210, 109, 104, 0.18)" },
 };
 
-const SOURCE_LABELS = {
+const SOURCE_LABELS: Record<SourceConfidence, string> = {
   official: "官方",
   hd_traceable: "高清可追溯",
   verified_secondary: "二级核验",
   needs_review: "待核验",
 };
 
-const state = {
+const state: GalleryState = {
   assets: [],
   filteredAssets: [],
   years: [],
@@ -24,29 +92,29 @@ const state = {
 };
 
 const elements = {
-  summaryCards: document.querySelector("#summary-cards"),
-  spotlightGrid: document.querySelector("#spotlight-grid"),
-  memberFilters: document.querySelector("#member-filters"),
-  yearFilters: document.querySelector("#year-filters"),
-  searchInput: document.querySelector("#search-input"),
-  sortSelect: document.querySelector("#sort-select"),
-  resultsMeta: document.querySelector("#results-meta"),
-  galleryGrid: document.querySelector("#gallery-grid"),
-  cardTemplate: document.querySelector("#card-template"),
-  modal: document.querySelector("#detail-modal"),
-  modalClose: document.querySelector("#detail-close"),
-  detailImage: document.querySelector("#detail-image"),
-  detailTitle: document.querySelector("#detail-title"),
-  detailSubtitle: document.querySelector("#detail-subtitle"),
-  detailBadges: document.querySelector("#detail-badges"),
-  detailGrid: document.querySelector("#detail-grid"),
-  detailFileLink: document.querySelector("#detail-file-link"),
-  detailSourceLink: document.querySelector("#detail-source-link"),
+  summaryCards: queryElement<HTMLElement>("#summary-cards"),
+  spotlightGrid: queryElement<HTMLElement>("#spotlight-grid"),
+  memberFilters: queryElement<HTMLElement>("#member-filters"),
+  yearFilters: queryElement<HTMLElement>("#year-filters"),
+  searchInput: queryElement<HTMLInputElement>("#search-input"),
+  sortSelect: queryElement<HTMLSelectElement>("#sort-select"),
+  resultsMeta: queryElement<HTMLElement>("#results-meta"),
+  galleryGrid: queryElement<HTMLElement>("#gallery-grid"),
+  cardTemplate: queryElement<HTMLTemplateElement>("#card-template"),
+  modal: queryElement<HTMLElement>("#detail-modal"),
+  modalClose: queryElement<HTMLButtonElement>("#detail-close"),
+  detailImage: queryElement<HTMLImageElement>("#detail-image"),
+  detailTitle: queryElement<HTMLElement>("#detail-title"),
+  detailSubtitle: queryElement<HTMLElement>("#detail-subtitle"),
+  detailBadges: queryElement<HTMLElement>("#detail-badges"),
+  detailGrid: queryElement<HTMLElement>("#detail-grid"),
+  detailFileLink: queryElement<HTMLAnchorElement>("#detail-file-link"),
+  detailSourceLink: queryElement<HTMLAnchorElement>("#detail-source-link"),
 };
 
 void init();
 
-async function init() {
+async function init(): Promise<void> {
   bindEvents();
   hydrateStateFromQuery();
 
@@ -56,7 +124,7 @@ async function init() {
       throw new Error(`Failed to load manifest: ${response.status}`);
     }
 
-    const manifest = await response.json();
+    const manifest = (await response.json()) as Manifest;
     state.assets = normalizeAssets(manifest.assets || []);
     state.years = collectYears(state.assets);
 
@@ -69,41 +137,41 @@ async function init() {
   }
 }
 
-function bindEvents() {
+function bindEvents(): void {
   elements.memberFilters.addEventListener("click", (event) => {
-    const button = event.target.closest("[data-member]");
+    const button = getClosestButton(event.target, "[data-member]");
     if (!button) {
       return;
     }
 
-    state.member = button.dataset.member || "all";
+    state.member = parseMemberFilter(button.dataset.member);
     syncMemberButtons();
     applyFilters();
   });
 
   elements.yearFilters.addEventListener("click", (event) => {
-    const button = event.target.closest("[data-year]");
+    const button = getClosestButton(event.target, "[data-year]");
     if (!button) {
       return;
     }
 
-    state.year = button.dataset.year || "all";
+    state.year = parseYearFilter(button.dataset.year);
     syncYearButtons();
     applyFilters();
   });
 
-  elements.searchInput.addEventListener("input", (event) => {
-    state.query = event.target.value.trim();
+  elements.searchInput.addEventListener("input", () => {
+    state.query = elements.searchInput.value.trim();
     applyFilters();
   });
 
-  elements.sortSelect.addEventListener("change", (event) => {
-    state.sort = event.target.value;
+  elements.sortSelect.addEventListener("change", () => {
+    state.sort = parseSortMode(elements.sortSelect.value);
     applyFilters();
   });
 
   elements.modal.addEventListener("click", (event) => {
-    if (event.target.dataset.close === "true") {
+    if (event.target instanceof HTMLElement && event.target.dataset.close === "true") {
       closeModal();
     }
   });
@@ -117,19 +185,19 @@ function bindEvents() {
   });
 }
 
-function hydrateStateFromQuery() {
+function hydrateStateFromQuery(): void {
   const params = new URLSearchParams(window.location.search);
-  state.member = params.get("member") || "all";
-  state.year = params.get("year") || "all";
+  state.member = parseMemberFilter(params.get("member"));
+  state.year = parseYearFilter(params.get("year"));
   state.query = params.get("q") || "";
-  state.sort = params.get("sort") || "newest";
+  state.sort = parseSortMode(params.get("sort"));
 
   elements.searchInput.value = state.query;
   elements.sortSelect.value = state.sort;
   syncMemberButtons();
 }
 
-function syncQueryString() {
+function syncQueryString(): void {
   const params = new URLSearchParams();
 
   if (state.member !== "all") {
@@ -150,9 +218,9 @@ function syncQueryString() {
   window.history.replaceState({}, "", url);
 }
 
-function normalizeAssets(assets) {
+function normalizeAssets(assets: ManifestAsset[]): NormalizedAsset[] {
   return assets.map((asset, index) => {
-    const memberMeta = MEMBER_META[asset.member] || {
+    const memberMeta = getMemberMeta(asset.member) || {
       zh: asset.member || "未知成员",
       accent: "#6a5440",
       accentSoft: "rgba(106, 84, 56, 0.18)",
@@ -173,7 +241,9 @@ function normalizeAssets(assets) {
       _year: derivedYear,
       _yearLabel: derivedYear ? String(derivedYear) : "未知年份",
       _imagePath: imagePath,
-      _sourceLabel: SOURCE_LABELS[asset.source_confidence] || "历史素材",
+      _sourceLabel: asset.source_confidence
+        ? SOURCE_LABELS[asset.source_confidence]
+        : "历史素材",
       _area: Number(asset.width || 0) * Number(asset.height || 0),
       _searchText: [
         asset.id,
@@ -191,9 +261,9 @@ function normalizeAssets(assets) {
   });
 }
 
-function deriveYear(asset) {
+function deriveYear(asset: ManifestAsset): number | null {
   if (Number.isInteger(asset.first_appearance_year)) {
-    return asset.first_appearance_year;
+    return asset.first_appearance_year ?? null;
   }
 
   if (typeof asset.first_appearance_date === "string") {
@@ -216,14 +286,14 @@ function deriveYear(asset) {
   return match ? Number(match[1]) : null;
 }
 
-function collectYears(assets) {
+function collectYears(assets: NormalizedAsset[]): number[] {
   const unique = new Set(
-    assets.map((asset) => asset._year).filter((year) => Number.isInteger(year))
+    assets.map((asset) => asset._year).filter((year): year is number => Number.isInteger(year))
   );
   return Array.from(unique).sort((left, right) => right - left);
 }
 
-function renderSummary(manifest) {
+function renderSummary(manifest: Manifest): void {
   const stats = [
     { label: "总素材", value: manifest.counts?.total_assets ?? state.assets.length, accent: "#35291e" },
     { label: "贝拉", value: manifest.counts?.by_member?.bella ?? 0, accent: MEMBER_META.Bella.accent },
@@ -243,7 +313,7 @@ function renderSummary(manifest) {
     .join("");
 }
 
-function renderYearFilters() {
+function renderYearFilters(): void {
   const buttons = ['<button class="chip" data-year="all" type="button">全部</button>'];
 
   state.years.forEach((year) => {
@@ -257,15 +327,16 @@ function renderYearFilters() {
   syncYearButtons();
 }
 
-function renderSpotlights() {
-  const spotlights = ["Bella", "Diana", "Eileen"]
+function renderSpotlights(): void {
+  const members: Member[] = ["Bella", "Diana", "Eileen"];
+  const spotlights = members
     .map((member) => {
       const entries = state.assets
         .filter((asset) => asset.member === member)
         .sort(compareByNewest);
       return entries[0] || null;
     })
-    .filter(Boolean);
+    .filter((asset): asset is NormalizedAsset => asset !== null);
 
   elements.spotlightGrid.innerHTML = spotlights
     .map(
@@ -288,7 +359,7 @@ function renderSpotlights() {
     .join("");
 }
 
-function applyFilters() {
+function applyFilters(): void {
   const query = state.query.toLowerCase();
 
   state.filteredAssets = state.assets
@@ -320,11 +391,11 @@ function applyFilters() {
   syncQueryString();
 }
 
-function renderResultsMeta() {
-  const activeFilters = [];
+function renderResultsMeta(): void {
+  const activeFilters: string[] = [];
 
   if (state.member !== "all") {
-    activeFilters.push(MEMBER_META[state.member]?.zh || state.member);
+    activeFilters.push(MEMBER_META[state.member].zh);
   }
   if (state.year !== "all") {
     activeFilters.push(state.year === "unknown" ? "未知年份" : `${state.year} 年`);
@@ -337,7 +408,7 @@ function renderResultsMeta() {
   elements.resultsMeta.textContent = `当前显示 ${state.filteredAssets.length} / ${state.assets.length} 张 · ${filterText}`;
 }
 
-function renderGallery() {
+function renderGallery(): void {
   if (!state.filteredAssets.length) {
     elements.galleryGrid.innerHTML =
       '<div class="gallery-empty">没有匹配结果。可以换成员、年份或者缩短关键词再试。</div>';
@@ -345,14 +416,19 @@ function renderGallery() {
   }
 
   const fragment = document.createDocumentFragment();
+  const templateRoot = elements.cardTemplate.content.firstElementChild;
+
+  if (!(templateRoot instanceof HTMLElement)) {
+    throw new Error("Gallery card template is missing its root element.");
+  }
 
   state.filteredAssets.forEach((asset) => {
-    const node = elements.cardTemplate.content.firstElementChild.cloneNode(true);
-    const mediaButton = node.querySelector(".outfit-card__media");
-    const image = node.querySelector(".outfit-card__image");
-    const badges = node.querySelector(".outfit-card__badges");
-    const title = node.querySelector(".outfit-card__title");
-    const meta = node.querySelector(".outfit-card__meta");
+    const node = templateRoot.cloneNode(true) as HTMLElement;
+    const mediaButton = queryElement<HTMLButtonElement>(".outfit-card__media", node);
+    const image = queryElement<HTMLImageElement>(".outfit-card__image", node);
+    const badges = queryElement<HTMLElement>(".outfit-card__badges", node);
+    const title = queryElement<HTMLElement>(".outfit-card__title", node);
+    const meta = queryElement<HTMLElement>(".outfit-card__meta", node);
 
     node.style.setProperty("--accent-soft", asset._accentSoft);
     mediaButton.style.setProperty("--accent-soft", asset._accentSoft);
@@ -375,7 +451,7 @@ function renderGallery() {
   elements.galleryGrid.appendChild(fragment);
 }
 
-function openModal(asset) {
+function openModal(asset: NormalizedAsset): void {
   elements.detailImage.src = asset._imagePath;
   elements.detailImage.alt = asset._title;
   elements.detailTitle.textContent = asset._title;
@@ -386,7 +462,7 @@ function openModal(asset) {
     renderBadge(asset._sourceLabel, "#6a5440"),
   ].join("");
 
-  const rows = [
+  const rows: Array<[string, string | number]> = [
     ["文件路径", asset.path],
     ["首次出现", asset.first_appearance_date || asset.first_appearance_year || "未知"],
     ["来源类型", asset.source_section || "未标注"],
@@ -415,31 +491,31 @@ function openModal(asset) {
   document.body.style.overflow = "hidden";
 }
 
-function closeModal() {
+function closeModal(): void {
   elements.modal.hidden = true;
   document.body.style.overflow = "";
 }
 
-function syncMemberButtons() {
+function syncMemberButtons(): void {
   elements.memberFilters
-    .querySelectorAll("[data-member]")
+    .querySelectorAll<HTMLButtonElement>("[data-member]")
     .forEach((button) => button.classList.toggle("is-active", button.dataset.member === state.member));
 }
 
-function syncYearButtons() {
+function syncYearButtons(): void {
   elements.yearFilters
-    .querySelectorAll("[data-year]")
+    .querySelectorAll<HTMLButtonElement>("[data-year]")
     .forEach((button) => button.classList.toggle("is-active", button.dataset.year === state.year));
 }
 
-function renderFatal(message) {
+function renderFatal(message: string): void {
   elements.resultsMeta.textContent = "素材索引加载失败。";
   elements.galleryGrid.innerHTML = `<div class="gallery-empty">${escapeHtml(
     message
   )}<br />请通过本地 HTTP 服务或 GitHub Pages 打开站点，不要直接双击本地文件。</div>`;
 }
 
-function selectSorter(mode) {
+function selectSorter(mode: SortMode): (left: NormalizedAsset, right: NormalizedAsset) => number {
   switch (mode) {
     case "member":
       return compareByMember;
@@ -453,7 +529,7 @@ function selectSorter(mode) {
   }
 }
 
-function compareByNewest(left, right) {
+function compareByNewest(left: NormalizedAsset, right: NormalizedAsset): number {
   const leftYear = left._year ?? -Infinity;
   const rightYear = right._year ?? -Infinity;
   if (rightYear !== leftYear) {
@@ -462,28 +538,30 @@ function compareByNewest(left, right) {
   return compareByMember(left, right);
 }
 
-function compareByMember(left, right) {
-  const memberOrder = { Bella: 0, Diana: 1, Eileen: 2 };
-  const memberDelta = (memberOrder[left.member] ?? 99) - (memberOrder[right.member] ?? 99);
+function compareByMember(left: NormalizedAsset, right: NormalizedAsset): number {
+  const memberOrder: Record<Member, number> = { Bella: 0, Diana: 1, Eileen: 2 };
+  const leftOrder = isMember(left.member) ? memberOrder[left.member] : 99;
+  const rightOrder = isMember(right.member) ? memberOrder[right.member] : 99;
+  const memberDelta = leftOrder - rightOrder;
   if (memberDelta !== 0) {
     return memberDelta;
   }
   return compareByTitle(left, right);
 }
 
-function compareByTitle(left, right) {
+function compareByTitle(left: NormalizedAsset, right: NormalizedAsset): number {
   return left._title.localeCompare(right._title, "zh-CN");
 }
 
-function compareBySize(left, right) {
+function compareBySize(left: NormalizedAsset, right: NormalizedAsset): number {
   return right._area - left._area || compareByNewest(left, right);
 }
 
-function renderBadge(text, color) {
+function renderBadge(text: string, color: string): string {
   return `<span class="badge" style="--badge-text: ${color}">${escapeHtml(text)}</span>`;
 }
 
-function formatBytes(value) {
+function formatBytes(value?: number): string {
   if (!value) {
     return "未知";
   }
@@ -498,7 +576,7 @@ function formatBytes(value) {
   return `${size.toFixed(size >= 10 || unitIndex === 0 ? 0 : 1)} ${units[unitIndex]}`;
 }
 
-function escapeHtml(value) {
+function escapeHtml(value: unknown): string {
   return String(value)
     .replaceAll("&", "&amp;")
     .replaceAll("<", "&lt;")
@@ -506,3 +584,40 @@ function escapeHtml(value) {
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#39;");
 }
+
+function queryElement<T extends Element>(selector: string, root: ParentNode = document): T {
+  const element = root.querySelector<T>(selector);
+  if (!element) {
+    throw new Error(`Required element not found: ${selector}`);
+  }
+  return element;
+}
+
+function getClosestButton(target: EventTarget | null, selector: string): HTMLButtonElement | null {
+  return target instanceof Element ? target.closest<HTMLButtonElement>(selector) : null;
+}
+
+function isMember(value: string): value is Member {
+  return value === "Bella" || value === "Diana" || value === "Eileen";
+}
+
+function getMemberMeta(member: string): MemberMeta | undefined {
+  return isMember(member) ? MEMBER_META[member] : undefined;
+}
+
+function parseMemberFilter(value: string | null | undefined): MemberFilter {
+  return value && isMember(value) ? value : "all";
+}
+
+function parseYearFilter(value: string | null | undefined): YearFilter {
+  if (value === "unknown" || value === "all") {
+    return value;
+  }
+  return value && /^\d{4}$/.test(value) ? (value as `${number}`) : "all";
+}
+
+function parseSortMode(value: string | null | undefined): SortMode {
+  return value === "member" || value === "title" || value === "size" ? value : "newest";
+}
+
+export {};

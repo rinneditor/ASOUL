@@ -1,6 +1,6 @@
 {
   "library": "asoul_clothing_refs",
-  "updated": "2026-06-15",
+  "updated": "2026-07-03",
   "purpose": "Clothing reference images for pixel-art game asset production.",
   "scope": {
     "member_policy": "current_active_first_generation_members_only",
@@ -69,11 +69,11 @@
     "eileen": "https://moegirl.uk/%E4%B9%83%E7%90%B3"
   },
   "counts": {
-    "total_assets": 102,
+    "total_assets": 105,
     "by_member": {
       "bella": 35,
       "diana": 33,
-      "eileen": 34
+      "eileen": 37
     }
   },
   "assets": [
@@ -1880,6 +1880,81 @@
         "Fourth anniversary live outfit poster for Eileen.",
         "Keep the wolf-ear head accessory, monochrome stocking contrast, and microphone silhouette readable.",
         "Source URL points to a Bilibili dynamic image hosted under Eileen's mid."
+      ]
+    },
+    {
+      "id": "eileen_2025_01_birthday_live_outfit",
+      "member": "Eileen",
+      "member_key": "eileen",
+      "source_section": "user_provided_bilibili_dynamic_poster",
+      "outfit": "birthday_live_outfit",
+      "caption_zh": "2025生日会服装立绘（甜蜜酒窖）",
+      "path": "eileen/eileen_2025_01_birthday_live_outfit.png",
+      "source_page": null,
+      "source_file_page": null,
+      "source_url": "https://i0.hdslb.com/bfs/new_dyn/1b547596ebb1be1b959fc6c3f7309d36672342685.png",
+      "first_appearance_year": 2025,
+      "first_appearance_date": null,
+      "first_appearance_source_url": "https://i0.hdslb.com/bfs/new_dyn/1b547596ebb1be1b959fc6c3f7309d36672342685.png",
+      "source_confidence": "hd_traceable",
+      "width": 2480,
+      "height": 3307,
+      "bytes": 13823440,
+      "sha256": "72b94b55358f7c5404cbe402cf232fc06611291aa7d5eb3a9de63a6c9f8eafe2",
+      "pixel_design_notes": [
+        "Birthday live outfit poster for Eileen's 2025 event titled \u751c\u5bc6\u9152\u7a96.",
+        "Keep the hat, cape silhouette, feather shoulder ornament, lace tights, and champagne-glass prop readable.",
+        "The image itself confirms the event time as 2025-08-16 20:00, but the poster publication date is not yet verified."
+      ]
+    },
+    {
+      "id": "eileen_2025_02_birthday_live_outfit_runtime_front",
+      "member": "Eileen",
+      "member_key": "eileen",
+      "source_section": "user_provided_local_runtime_screenshot",
+      "outfit": "birthday_live_outfit_runtime_front",
+      "caption_zh": "2025生日会服装实机图（正面版）",
+      "path": "eileen/eileen_2025_02_birthday_live_outfit_runtime_front.png",
+      "source_page": null,
+      "source_file_page": null,
+      "source_url": null,
+      "first_appearance_year": 2025,
+      "first_appearance_date": null,
+      "first_appearance_source_url": "https://i0.hdslb.com/bfs/new_dyn/1b547596ebb1be1b959fc6c3f7309d36672342685.png",
+      "source_confidence": "needs_review",
+      "width": 606,
+      "height": 1614,
+      "bytes": 1030484,
+      "sha256": "9bcae25dad2de02ebde1e1e7e8627d34176571a28f5141c453492da74069b565",
+      "pixel_design_notes": [
+        "User-provided runtime screenshot of Eileen's 2025 birthday live outfit.",
+        "Front-standing version is useful for checking torso layering, garter placement, and asymmetric stocking details.",
+        "An externally traceable publication source for this runtime screenshot is still needed."
+      ]
+    },
+    {
+      "id": "eileen_2025_03_birthday_live_outfit_runtime_cape",
+      "member": "Eileen",
+      "member_key": "eileen",
+      "source_section": "user_provided_local_runtime_screenshot",
+      "outfit": "birthday_live_outfit_runtime_cape",
+      "caption_zh": "2025生日会服装实机图（披风版）",
+      "path": "eileen/eileen_2025_03_birthday_live_outfit_runtime_cape.png",
+      "source_page": null,
+      "source_file_page": null,
+      "source_url": null,
+      "first_appearance_year": 2025,
+      "first_appearance_date": null,
+      "first_appearance_source_url": "https://i0.hdslb.com/bfs/new_dyn/1b547596ebb1be1b959fc6c3f7309d36672342685.png",
+      "source_confidence": "needs_review",
+      "width": 650,
+      "height": 1380,
+      "bytes": 977037,
+      "sha256": "3d1f3847192d67f73fd84c4a84bc851d76cd74296593f2a777b860ea05ed887d",
+      "pixel_design_notes": [
+        "User-provided runtime screenshot of Eileen's 2025 birthday live outfit.",
+        "Cape version is useful for checking the shoulder brooch, feather decoration, and rear drape silhouette.",
+        "An externally traceable publication source for this runtime screenshot is still needed."
       ]
     }
   ],

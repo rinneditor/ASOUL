@@ -15,21 +15,23 @@
 - `asset/asoul_clothing_refs/`: 服装参考图素材库。
 - `asset/asoul_clothing_refs/manifest.json`: 机器可读素材索引，包含来源 URL、尺寸、文件大小、hash 和设计备注。
 - `asset/asoul_clothing_refs/README.md`: 详细素材目录和单图清单。
-- `site/`: 展示站目录，包含 `index.html`、样式和脚本文件。
+- `site/`: 展示站目录，包含 `index.html`、样式、TypeScript 源码和构建配置。
 - 根目录 `index.html`: 仅用于跳转到 `site/index.html`，避免旧入口失效。
 
 ### 网站展示
 
 - 展示站文件已单独收纳在 `site/` 目录中，可直接展示已收集服装。
 - 页面支持成员筛选、年份筛选、关键词搜索、排序和单图详情查看。
+- 页面逻辑使用 TypeScript 编写，源码位于 `site/src/main.ts`，浏览器脚本输出到 `site/dist/main.js`。
+- 在 `site/` 目录运行 `pnpm build` 可重新生成浏览器脚本。
 - 已添加 `.github/workflows/deploy-pages.yml`，需要时可手动触发 GitHub Pages 部署。
 
 ### 当前数量
 
-- 总素材：102 张
+- 总素材：105 张
 - 贝拉：35 张
 - 嘉然：33 张
-- 乃琳：34 张
+- 乃琳：37 张
 
 ### 使用建议
 
@@ -64,21 +66,23 @@ This repository collects clothing reference assets for current active first-gene
 - `asset/asoul_clothing_refs/`: clothing reference image library.
 - `asset/asoul_clothing_refs/manifest.json`: machine-readable asset index with source URLs, dimensions, file sizes, hashes, and design notes.
 - `asset/asoul_clothing_refs/README.md`: detailed catalog and per-image listing.
-- `site/`: gallery site directory with the HTML entrypoint, stylesheet, and script.
+- `site/`: gallery site directory with the HTML entrypoint, stylesheet, TypeScript source, and build configuration.
 - root `index.html`: redirect-only entrypoint that forwards to `site/index.html`.
 
 ### Web Viewer
 
 - The gallery implementation now lives under `site/` as a self-contained static site.
 - The viewer supports member filters, year filters, keyword search, sorting, and per-image detail views.
+- The viewer logic is written in TypeScript at `site/src/main.ts` and compiled to `site/dist/main.js` for browsers.
+- Run `pnpm build` inside `site/` to regenerate the browser script.
 - `.github/workflows/deploy-pages.yml` is ready for manual GitHub Pages deployment when needed.
 
 ### Current Counts
 
-- Total assets: 102 images
+- Total assets: 105 images
 - Bella: 35 images
 - Diana: 33 images
-- Eileen: 34 images
+- Eileen: 37 images
 
 ### Usage Notes
 
