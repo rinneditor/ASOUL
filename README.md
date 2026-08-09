@@ -10,6 +10,10 @@
 - 不在本库范围内：~~向晚~~、~~珈乐~~。
 - 素材只作为造型、配色、轮廓和服装元素参考；正式制作时应绘制原创简化资产，不直接描摹或复用原图。
 
+### 版权说明
+
+本仓库收录素材的著作权及相关权利归 [A-SOUL_Official](https://space.bilibili.com/703007996) 及相应权利人所有。本仓库仅用于资料整理与非商业参考，不主张对原始素材拥有所有权。
+
 ### 素材目录
 
 - `asset/asoul_clothing_refs/`: 服装参考图素材库。
@@ -60,6 +64,10 @@ This repository collects clothing reference assets for current active first-gene
 - Current active first-generation members only: Bella, Diana, and Eileen.
 - Out of scope for this library: ~~Ava~~ and ~~Carol~~.
 - These files are visual references for silhouette, palette, shape language, and clothing motifs. Production assets should be original simplified drawings, not direct traces or reused source images.
+
+### Copyright Notice
+
+Copyright and related rights in the collected materials belong to [A-SOUL_Official](https://space.bilibili.com/703007996) and their respective rights holders. This repository is maintained solely for archival organization and non-commercial reference and does not claim ownership of the original materials.
 
 ### Asset Directories
 
